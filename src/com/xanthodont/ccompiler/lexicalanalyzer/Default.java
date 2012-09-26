@@ -1,4 +1,4 @@
-package com.xanthodont.ccompiler.scanner;
+package com.xanthodont.ccompiler.lexicalanalyzer;
 
 public class Default {
 

@@ -1,4 +1,4 @@
-package com.xanthodont.ccompiler.syntaxanalyser;
+package com.xanthodont.ccompiler.syntaxanalyzer;
 
 public class Default {
 
