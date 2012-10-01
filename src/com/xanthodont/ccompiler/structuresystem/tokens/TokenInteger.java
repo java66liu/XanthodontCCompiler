@@ -19,8 +19,10 @@ import com.xanthodont.ccompiler.structuresystem.Token;
  *
  */
 public class TokenInteger extends Token{
+	
 	/** 整型数的值 */
 	private int _value;
+	
 	/**
 	 * 构造方法
 	 * @param value 整型数的值

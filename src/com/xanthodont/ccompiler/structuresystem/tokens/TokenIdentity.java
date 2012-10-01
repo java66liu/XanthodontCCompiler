@@ -22,6 +22,7 @@ public class TokenIdentity extends Token{
 
 	/** 标识符串 */
 	private String _lexeme;
+	
 	/**
 	 * 构造方法
 	 * @param lexeme 标识符串
