@@ -84,6 +84,13 @@ public class Tag {
 	/** 循环语句的循环条件 */
 	public final int WHILE = 287;
 	
+	/** 整数类型 */
+	public final int INTEGER = 290;
+	/** 浮点数类型 */
+	public final int FLOATER = 291;
+	/** 标识符 */
+	public final int IDENTITY = 292;
+	
 	/**
 	 * @param args
 	 */
