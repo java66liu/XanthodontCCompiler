@@ -70,6 +70,8 @@ public class SourceCodeFileReader {
 	
 	/**
 	 * 以字符为单位读取
+	 * @return 返回-1表示读取结束
+	 * 		          正常情况下返回字符的ASCII值
 	 */
 	public int readByChar()
 	{
@@ -86,6 +88,8 @@ public class SourceCodeFileReader {
 	
 	/**
 	 * 使用缓冲加载，优化读取的效率
+	 * @return 返回-1表示读取结束
+	 * 		           正常情况下返回字符的ASCII值
 	 */
 	public int readByBuffers()
 	{
@@ -142,7 +146,7 @@ public class SourceCodeFileReader {
 		System.out.println("总读取字符数：" + times + " readByChar耗时：" + (end - start) + "ms");
 		
 		/** 
-		 * 使用缓冲加载，优化读取的效率
+		 * 使用缓冲加载读取的效率
 		 */
 		times = 0;
 		SourceCodeFileReader readByBuffers = new SourceCodeFileReader(fileName);
