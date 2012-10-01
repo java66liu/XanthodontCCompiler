@@ -1,6 +1,7 @@
 /************************************************************************
 * 版权所有 (C)2012,xanthodont 
-* http://www.cnblogs.com/hbq-fczzw/						 
+* http://www.cnblogs.com/hbq-fczzw/	
+* http://weibo.com/u/2106149344					 
 *																		 
 * 文件名称：TokenNumber.java							                     
 * 内容摘要： 表示整型数记号的类                                                            

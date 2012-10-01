@@ -1,6 +1,7 @@
 /************************************************************************
 * 版权所有 (C)2012,xanthodont 
-* http://www.cnblogs.com/hbq-fczzw/						 
+* http://www.cnblogs.com/hbq-fczzw/		
+* http://weibo.com/u/2106149344				 
 *																		 
 * 文件名称：Tag.java							                     
 * 内容摘要： 记号类型类，用于标明记号的类型。                                                            

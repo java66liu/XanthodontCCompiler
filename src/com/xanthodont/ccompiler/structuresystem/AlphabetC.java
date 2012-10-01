@@ -1,6 +1,7 @@
 /************************************************************************
 * 版权所有 (C)2012,xanthodont 
-* http://www.cnblogs.com/hbq-fczzw/						 
+* http://www.cnblogs.com/hbq-fczzw/	
+* http://weibo.com/u/2106149344					 
 *																		 
 * 文件名称：AlphabetC.java							                     
 * 内容摘要：C语言中所有用到的字符集                                                             

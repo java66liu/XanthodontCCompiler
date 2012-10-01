@@ -1,6 +1,7 @@
 /************************************************************************
 * 版权所有 (C)2012,xanthodont 
-* http://www.cnblogs.com/hbq-fczzw/						 
+* http://www.cnblogs.com/hbq-fczzw/	
+* http://weibo.com/u/2106149344					 
 *																		 
 * 文件名称：TokenIdentity.java							                     
 * 内容摘要： 代表标识符的记号类                                                            
@@ -30,6 +31,16 @@ public class TokenIdentity extends Token{
 	public TokenIdentity(String lexeme)
 	{
 		super(Tag.IDENTITY);
+		this._lexeme = lexeme;
+	}
+	/**
+	 * 构造方法，主要用以关键字
+	 * @param tag 关键字类别
+	 * @param lexeme 关键字串
+	 */
+	public TokenIdentity(int tag, String lexeme)
+	{
+		super(tag);
 		this._lexeme = lexeme;
 	}
 	
