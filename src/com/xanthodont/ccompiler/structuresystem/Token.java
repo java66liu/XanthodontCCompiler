@@ -10,7 +10,11 @@
 * 完成日期：2012-9-25                      									     
 ************************************************************************/
 package com.xanthodont.ccompiler.structuresystem;
-
+/**
+ * 记号类，表示词法单元
+ * @author xanthondont
+ *
+ */
 public class Token 
 {
 	/** 记号类别字段 */
