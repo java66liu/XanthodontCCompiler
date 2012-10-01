@@ -10,9 +10,15 @@
 * 完成日期：2012-9-27                      									     
 ************************************************************************/
 package com.xanthodont.ccompiler.structuresystem;
-
+/**
+ * 字母表，表示C语言中用到的所有字符的集合
+ * @author xanthondont
+ *
+ */
 public class AlphabetC {
 
+	
+	
 	/**
 	 * @param args
 	 */
