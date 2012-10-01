@@ -143,7 +143,7 @@ public class SourceCodeFileReader {
 		long start = System.currentTimeMillis();
 		while(readByChar.readByChar() != -1){ times++; }
 		long end = System.currentTimeMillis();
-		System.out.println("总读取字符数：" + times + " readByChar耗时：" + (end - start) + "ms");
+		System.out.println(String.format("总读取字符数：%d readByChar耗时：%dms", times, (end - start)));
 		
 		/** 
 		 * 使用缓冲加载读取的效率
@@ -153,7 +153,7 @@ public class SourceCodeFileReader {
 		start = System.currentTimeMillis();
 		while(readByBuffers.readByBuffers() != -1){ times++; }
 		end = System.currentTimeMillis();
-		System.out.println("总读取字符数：" + times + " readByBuffers耗时：" + (end - start) + "ms");
+		System.out.println(String.format("总读取字符数：%d readByBuffers耗时：%dms", times, (end - start)));
 	}
 
 }
