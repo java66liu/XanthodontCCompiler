@@ -32,6 +32,10 @@ public class SourceCodeFileReader {
 	private int _currentPosition = -1; 
 	/** 缓冲字符 */
 	private char[] _tempchars = null;
+	/** 一次读取缓冲填入区中的字符数 */
+	private int _charread = 0;
+	/** 缓冲区大小 */
+	private final int BUFFER_LENGTH = 1024;
 	
 	/**
 	 * 构造方法
@@ -67,37 +71,37 @@ public class SourceCodeFileReader {
 	/**
 	 * 以字符为单位读取
 	 */
-	public char readByChar()
+	public int readByChar()
 	{
 		try 
 		{
-			int tempChar = this._reader.read();
-			if(tempChar != -1)
-			{
-				return (char)tempChar;
-			}
+			return this._reader.read();
 		} 
 		catch (IOException e) 
 		{
 			e.printStackTrace();
 		}
-		return ' ';
+		return -1;
 	}
 	
 	/**
 	 * 使用缓冲加载，优化读取的效率
 	 */
-	public char readByBuffers()
+	public int readByBuffers()
 	{
 		if(this._currentPosition < 0)
 		{
 			try 
 			{
-				this._tempchars = new char[1024];
-				int charread = _reader.read(_tempchars);
-				if(charread <= _tempchars.length && charread != -1)
+				this._tempchars = new char[BUFFER_LENGTH];
+				_charread = _reader.read(_tempchars);
+				if(_charread <= _tempchars.length && _charread != -1)
 				{
 					return _tempchars[++_currentPosition];
+				}
+				else
+				{
+					return -1;
 				}
 			} 
 			catch (IOException e) 
@@ -112,18 +116,40 @@ public class SourceCodeFileReader {
 				_currentPosition = -1;
 				return _tempchars[_tempchars.length-1];
 			}
+			else if(_currentPosition >= _charread)
+				return -1;
 			return _tempchars[_currentPosition];
 		}
-		return ' ';
+		return -1;
 	}
 	
 	
 	/**
+	 * 测试SourceCodeFileReader两种读取方式的效率
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		String fileName = "D:\\Projects\\Git\\Pattern.java";	// 源代码文件路径
+		long times = 0;
+		/** 
+		 * 以字符为单位读取的效率
+		 */
+		SourceCodeFileReader readByChar = new SourceCodeFileReader(fileName);
+		long start = System.currentTimeMillis();
+		while(readByChar.readByChar() != -1){ times++; }
+		long end = System.currentTimeMillis();
+		System.out.println("总读取字符数：" + times + " readByChar耗时：" + (end - start) + "ms");
 		
+		/** 
+		 * 使用缓冲加载，优化读取的效率
+		 */
+		times = 0;
+		SourceCodeFileReader readByBuffers = new SourceCodeFileReader(fileName);
+		start = System.currentTimeMillis();
+		while(readByBuffers.readByBuffers() != -1){ times++; }
+		end = System.currentTimeMillis();
+		System.out.println("总读取字符数：" + times + " readByBuffers耗时：" + (end - start) + "ms");
 	}
 
 }
