@@ -25,9 +25,12 @@ public class State4 implements IState {
 		{
 			case '*':
 				lexer.setState(new State5());
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
+			case '\n':
+				lexer._line++;
+				return StateHandleResult.Do_nothing;
 			default:
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
 		}
 	}
 

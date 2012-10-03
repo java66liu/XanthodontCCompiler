@@ -24,13 +24,17 @@ public class State5 implements IState {
 		switch(peek)
 		{
 			case '*':
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
 			case '/':
 				lexer.setState(new State0());
 				return StateHandleResult.Receive;
+			case '\n':
+				lexer._line++;
+				lexer.setState(new State4());
+				return StateHandleResult.Do_nothing;
 			default:
 				lexer.setState(new State4());
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
 		}
 	}
 

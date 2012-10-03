@@ -17,6 +17,7 @@ import java.util.Hashtable;
 import com.xanthodont.ccompiler.lexicalanalyzer.states.State0;
 import com.xanthodont.ccompiler.structuresystem.Tag;
 import com.xanthodont.ccompiler.structuresystem.Token;
+import com.xanthodont.ccompiler.structuresystem.tokens.TokenInteger;
 
 /**
  * 词法分析类，用以去除注释、空白符，识别各个词法单元
@@ -40,6 +41,8 @@ public class Lexer {
 	private IState _state;
 	/** 是否回退读取，用以控制_peek是否读取下一个字符 */
 	private boolean _isBack = false;
+	
+	private StringBuilder _builder = new StringBuilder();
 	
 	/**
 	 * 构造方法
@@ -127,18 +130,37 @@ public class Lexer {
 			}
 			_isBack = false;
 			int result = _state.handle(this, _peek);
-			if(result == StateHandleResult.Normal)
+			if((result & StateHandleResult.Normal) > 0)
 			{
-				
+				_builder.append(_peek);
 			}
-			else if(result == StateHandleResult.Receive)
+			else if((result & StateHandleResult.Do_nothing) > 0)
 			{
-				
 			}
-			else if(result == StateHandleResult.Receive_back)
+			else if((result & StateHandleResult.Error) > 0)
 			{
+				_builder.append(_peek);
+				System.out.println(String.format("error %s line:%d", _builder.toString(), _line));
+				this._builder = new StringBuilder();
+			}
+			else if((result & StateHandleResult.Integer) > 0)
+			{
+				System.out.println("integer:"+_builder.toString());
+			}
+			else if((result & StateHandleResult.Operation) > 0)
+			{
+				System.out.println("operation:"+_builder.toString());
+			}
+			if((result & StateHandleResult.Receive) > 0)
+			{
+				this._builder = new StringBuilder();
+			}
+			else if((result & StateHandleResult.Receive_back) > 0)
+			{
+				this._builder = new StringBuilder();
 				_isBack = true;
 			}
+			
 		}
 	}
 	

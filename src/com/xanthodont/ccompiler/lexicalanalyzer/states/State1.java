@@ -25,10 +25,10 @@ public class State1 implements IState {
 		{
 			case ' ':
 			case '\r':
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
 			case '\n':
 				lexer._line++;
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
 			default:
 				lexer.setState(new State0());
 				System.out.print(' ');

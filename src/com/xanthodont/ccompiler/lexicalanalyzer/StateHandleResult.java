@@ -17,11 +17,14 @@ package com.xanthodont.ccompiler.lexicalanalyzer;
  *
  */
 public final class StateHandleResult {
-	public static final int Error = 0x00000001;
-	public static final int No_finish = 0x00000010;
-	public static final int Normal = 0x00000100;
-	public static final int Receive = 0x00001000;
-	public static final int Receive_back = 0x00010000;
+	public static final int Error = 0x1;
+	public static final int No_finish = 0x2;
+	public static final int Normal = 0x4;
+	public static final int Receive = 0x8;
+	public static final int Receive_back = 0x10;
+	public static final int Integer = 0x20;
+	public static final int Do_nothing = 0x40;
+	public static final int Operation = 0x80;
 	
 	/**
 	 * @param args
@@ -29,6 +32,6 @@ public final class StateHandleResult {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int i =  0x00000010;
-		System.out.print(i);
+		System.out.print(48 & Integer);
 	}
 }

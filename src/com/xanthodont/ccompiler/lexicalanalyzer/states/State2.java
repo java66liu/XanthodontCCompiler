@@ -25,14 +25,27 @@ public class State2 implements IState {
 		{
 			case '/':
 				lexer.setState(new State3());
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
 			case '*':
 				lexer.setState(new State4());
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
+			case ' ':
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+			
+				lexer.setState(new State0());
+				return StateHandleResult.Operation | StateHandleResult.Receive_back;
 			default:
 				lexer.setState(new State0());
-				System.out.print('/');System.out.print(peek);
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing | StateHandleResult.Receive_back;
 		}
 	}
 

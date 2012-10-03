@@ -24,10 +24,11 @@ public class State3 implements IState {
 		switch(peek)
 		{
 			case '\n':
+				lexer._line++;
 				lexer.setState(new State0());
 				return StateHandleResult.Receive;
 			default:
-				return StateHandleResult.Normal;
+				return StateHandleResult.Do_nothing;
 		}
 	}
 
