@@ -23,7 +23,7 @@ import com.xanthodont.ccompiler.lexicalanalyzer.StateHandleResult;
 public class State0 implements IState{
 
 	@Override
-	public StateHandleResult handle(Lexer lexer, char peek) {
+	public int handle(Lexer lexer, char peek) {
 		// TODO Auto-generated method stub
 		switch(peek)
 		{
@@ -37,9 +37,23 @@ public class State0 implements IState{
 			case '/':
 				lexer.setState(new State2());
 				return StateHandleResult.Normal;
-			default:
-				System.out.print(peek);
+			case '0':
+				lexer.setState(new State6());
 				return StateHandleResult.Normal;
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+				lexer.setState(new State7());
+				return StateHandleResult.Normal;
+			default:
+				//System.out.print(peek);
+				return StateHandleResult.No_finish;
 		}
 	}
 	

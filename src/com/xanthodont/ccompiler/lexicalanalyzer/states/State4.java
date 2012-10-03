@@ -19,7 +19,7 @@ import com.xanthodont.ccompiler.lexicalanalyzer.StateHandleResult;
 public class State4 implements IState {
 
 	@Override
-	public StateHandleResult handle(Lexer lexer, char peek) {
+	public int handle(Lexer lexer, char peek) {
 		// TODO Auto-generated method stub
 		switch(peek)
 		{

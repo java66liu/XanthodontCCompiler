@@ -18,5 +18,5 @@ package com.xanthodont.ccompiler.lexicalanalyzer;
  */
 public interface IState 
 {
-	StateHandleResult handle(Lexer lexer, char peek);
+	int handle(Lexer lexer, char peek);
 }

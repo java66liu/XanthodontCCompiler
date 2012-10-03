@@ -16,8 +16,19 @@ package com.xanthodont.ccompiler.lexicalanalyzer;
  * @author xanthondont
  *
  */
-public enum StateHandleResult {
-	Normal,
-	Receive,
-	Receive_back,
+public final class StateHandleResult {
+	public static final int Error = 0x00000001;
+	public static final int No_finish = 0x00000010;
+	public static final int Normal = 0x00000100;
+	public static final int Receive = 0x00001000;
+	public static final int Receive_back = 0x00010000;
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int i =  0x00000010;
+		System.out.print(i);
+	}
 }

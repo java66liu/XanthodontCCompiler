@@ -126,7 +126,7 @@ public class Lexer {
 					_peek = (char)t;
 			}
 			_isBack = false;
-			StateHandleResult result = _state.handle(this, _peek);
+			int result = _state.handle(this, _peek);
 			if(result == StateHandleResult.Normal)
 			{
 				
