@@ -41,7 +41,7 @@ public class Lexer {
 	private IState _state;
 	/** 是否回退读取，用以控制_peek是否读取下一个字符 */
 	private boolean _isBack = false;
-	
+	/** 暂时存储当前处理的串 */
 	private StringBuilder _builder = new StringBuilder();
 	
 	/**
@@ -145,7 +145,12 @@ public class Lexer {
 			}
 			else if((result & StateHandleResult.Integer) > 0)
 			{
-				System.out.println("integer:"+_builder.toString());
+				int integer = 0;
+				for(char c : _builder.toString().toCharArray())
+				{
+					integer = integer * 10 + Character.digit(c, 10);
+				}
+				System.out.println("integer:"+integer);
 			}
 			else if((result & StateHandleResult.Operation) > 0)
 			{
